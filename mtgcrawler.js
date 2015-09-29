@@ -8,7 +8,7 @@ function filterMap(mapHtml){
 	var mapHref = []
 	map.each(function(){
 		var maps = $(this).attr('href')
-		var edition = 'magiccards.info' + maps
+		var edition = 'http://magiccards.info' + maps
 		mapHref.push(edition)
 	})
 	return mapHref
