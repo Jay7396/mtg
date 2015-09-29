@@ -1,5 +1,6 @@
 var http = require('http');
 var cheerio = require('cheerio')
+var fs = require('fs')
 
 function filterMap(mapHtml){
 	var $ = cheerio.load(mapHtml)
@@ -21,6 +22,7 @@ http.get('http://magiccards.info/sitemap.html',function(res){
 	})
 	res.on('end',function(){
 		console.log(filterMap(mapHtml))
+		fs.writeFileSync('result.json', JSON.stringify(filterMap(mapHtml)))
 	})
 }).on('error',function(){
 	console.log(err)
